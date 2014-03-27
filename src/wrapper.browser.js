@@ -2,7 +2,8 @@
 // See http://github.com/jimhigson/oboe.js for the raw source
 
 // having a local undefined, window, Object etc allows slightly better minification:                    
-(function  (window, Object, Array, Error, JSON, undefined ) {
+(function  (Object, Array, Error, JSON, undefined ) {
+   var window = typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};
 
    // ---contents--- //
 
@@ -11,4 +12,4 @@
    } else {
       window.oboe = oboe;
    }
-})(window, Object, Array, Error, JSON);
+})(Object, Array, Error, JSON);
