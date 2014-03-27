@@ -9,7 +9,11 @@
 
    if ( typeof define === "function" && define.amd ) {
       define( "oboe", [], function () { return oboe; } );
-   } else {
+   } 
+   else if ( typeof module === 'object' && typeof module.exports === 'object') {
+   	  module.exports = oboe;
+   }
+   else {
       window.oboe = oboe;
    }
 })(Object, Array, Error, JSON);
