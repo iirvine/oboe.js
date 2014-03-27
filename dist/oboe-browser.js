@@ -2,9 +2,10 @@
 // See http://github.com/jimhigson/oboe.js for the raw source
 
 // having a local undefined, window, Object etc allows slightly better minification:                    
-(function  (window, Object, Array, Error, JSON, undefined ) {
+(function  (Object, Array, Error, JSON, undefined ) {
+   var window = typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};
 
-   // v1.14.2-13-gc97c46b
+   // v1.14.3-3-g3a7355c
 
 /*
 
@@ -2498,7 +2499,11 @@ function oboe(arg1, arg2) {
 
    if ( typeof define === "function" && define.amd ) {
       define( "oboe", [], function () { return oboe; } );
-   } else {
+   } 
+   else if ( typeof module === 'object' && typeof module.exports === 'object') {
+   	  module.exports = oboe;
+   }
+   else {
       window.oboe = oboe;
    }
-})(window, Object, Array, Error, JSON);
+})(Object, Array, Error, JSON);
